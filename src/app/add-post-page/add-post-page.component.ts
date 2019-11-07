@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'po-add-post-page',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title) {
+    title.setTitle('Додати нове повідомлення - Громадська організація');
+  }
 
   ngOnInit() {
   }
