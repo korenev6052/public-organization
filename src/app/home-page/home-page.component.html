@@ -23,8 +23,8 @@
 
     <form class="home-page-feedback__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
       <mat-form-field class="home-page-form__form-input" appearance="fill">
-        <input type="text" matInput placeholder="Ваше ім'я" ngModel name="name" required>
-        <mat-error *ngIf="email.hasError('required')">
+        <input type="text" matInput placeholder="Ваше ім'я" ngModel name="name" required #name="ngModel">
+        <mat-error *ngIf="name.hasError('required')">
           Ім'я не може бути порожнім
         </mat-error>
       </mat-form-field>
@@ -38,8 +38,9 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="home-page-form__form-textarea" appearance="fill">
-        <textarea type="text" matInput placeholder="Текст повідомлення" ngModel name="message" required></textarea>
-        <mat-error *ngIf="email.hasError('required')">
+        <textarea type="text" matInput placeholder="Текст повідомлення" ngModel name="message" required
+          #message="ngModel"></textarea>
+        <mat-error *ngIf="message.hasError('required')">
           Текст повідомлення не може бути порожнім
         </mat-error>
       </mat-form-field>
