@@ -67,14 +67,18 @@
 .home-page-feedback__header {
   font-size: 28px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .home-page-feedback__form {
   width: 100%;
   max-width: 800px;
-  margin: 20px auto;
-  margin-top: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 20px;
+}
+.home-page-feedback__message {
+  font-size: 16px;
+  font-style: italic;
 }
 .home-page-form__form-input {
   width: 96%;

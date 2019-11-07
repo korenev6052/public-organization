@@ -16,17 +16,35 @@
     <h2 class="home-page-feedback__header">
       Написати нам
     </h2>
-    <form class="home-page-feedback__form">
+    <mat-card-subtitle class="home-page-feedback__message" *ngIf="formSubmitted">
+      Ваше повідомлення надіслано, дякуємо вам за зворотний
+      зв'язок!
+    </mat-card-subtitle>
+
+    <form class="home-page-feedback__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
       <mat-form-field class="home-page-form__form-input" appearance="fill">
-        <input matInput placeholder="Ваше ім'я">
+        <input type="text" matInput placeholder="Ваше ім'я" ngModel name="name" required>
+        <mat-error *ngIf="email.hasError('required')">
+          Ім'я не може бути порожнім
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="home-page-form__form-input" appearance="fill">
-        <input matInput placeholder="Ваша пошта">
+        <input type="email" matInput placeholder="Ваша пошта" ngModel name="email" required email #email="ngModel">
+        <mat-error *ngIf="email.hasError('required')">
+          Пошта не може бути порожньою
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Будь ласка, введіть коректну пошту
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="home-page-form__form-textarea" appearance="fill">
-        <textarea matInput placeholder="Текст повідомлення"></textarea>
+        <textarea type="text" matInput placeholder="Текст повідомлення" ngModel name="message" required></textarea>
+        <mat-error *ngIf="email.hasError('required')">
+          Текст повідомлення не може бути порожнім
+        </mat-error>
       </mat-form-field>
-      <button class="home-page-feedback__button" mat-raised-button color="primary">
+      <button type="submit" class="home-page-feedback__button" mat-raised-button color="primary"
+        [disabled]="!form.valid">
         <mat-icon>mail_outline</mat-icon>&nbsp;Надіслати
       </button>
     </form>
