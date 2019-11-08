@@ -1,1 +1,34 @@
-<p>add-post-page works!</p>
+<div class="add-post-page">
+  <h2 class="add-post-page__header">
+    Додати нове повідомлення
+  </h2>
+  <mat-card-subtitle class="add-post-page__message" *ngIf="formSubmitted">
+    Ваше повідомлення прийнято, дякуємо вам за інформацію!
+  </mat-card-subtitle>
+  <form class="add-post-page__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-form-field class="add-post-page__form-input" appearance="fill">
+      <input type="text" matInput placeholder="Місто" ngModel name="city" required #city="ngModel">
+      <mat-error *ngIf="city.hasError('required')">
+        Місто не може бути порожнім
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-post-page__form-input" appearance="fill">
+      <input type="text" matInput placeholder="Вулиця" ngModel name="street" required #street="ngModel">
+      <mat-error *ngIf="street.hasError('required')">
+        Вулиця не може бути порожньою
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-post-page__form-input" appearance="fill">
+      <input type="text" matInput placeholder="Будинок" ngModel name="house" required #house="ngModel">
+      <mat-error *ngIf="house.hasError('required')">
+        Будинок не може бути порожнім
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-post-page__form-input" appearance="fill">
+      <textarea type="text" matInput placeholder="Додаткова інформація" ngModel name="message"></textarea>
+    </mat-form-field>
+    <button type="submit" class="add-post-page__form-button" mat-raised-button color="accent" [disabled]="!form.valid">
+      <mat-icon>flash_on</mat-icon>&nbsp;Повідомити
+    </button>
+  </form>
+</div>
