@@ -1,31 +1,40 @@
 <div class="add-post-page">
-  <h2 class="add-post-page__header">
+  <h1 class="add-post-page__header">
     Додати нове повідомлення
-  </h2>
-  <mat-card-subtitle class="add-post-page__message" *ngIf="formSubmitted">
-    Ваше повідомлення прийнято, дякуємо вам за інформацію!
-  </mat-card-subtitle>
+  </h1>
   <form class="add-post-page__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
     <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <input type="text" matInput placeholder="Місто" ngModel name="city" required #city="ngModel">
-      <mat-error *ngIf="city.hasError('required')">
-        Місто не може бути порожнім
+      <mat-label>Місто</mat-label>
+      <input type="text" matInput ngModel name="city" required #city="ngModel">
+      <mat-error *ngIf="city.hasError('required') && city.touched">
+        Значення поля "Місто" не може бути порожнім
       </mat-error>
     </mat-form-field>
     <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <input type="text" matInput placeholder="Вулиця" ngModel name="street" required #street="ngModel">
-      <mat-error *ngIf="street.hasError('required')">
-        Вулиця не може бути порожньою
+      <mat-label>Вулиця</mat-label>
+      <input type="text" matInput ngModel name="street" required #street="ngModel">
+      <mat-error *ngIf="street.hasError('required') && street.touched">
+        Значення поля "Вулиця" не може бути порожнім
       </mat-error>
     </mat-form-field>
     <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <input type="text" matInput placeholder="Будинок" ngModel name="house" required #house="ngModel">
-      <mat-error *ngIf="house.hasError('required')">
-        Будинок не може бути порожнім
+      <mat-label>Будинок</mat-label>
+      <input type="text" matInput ngModel name="house" required #house="ngModel">
+      <mat-error *ngIf="house.hasError('required') && house.touched">
+        Значення поля "Будинок" не може бути порожнім
       </mat-error>
     </mat-form-field>
     <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <textarea type="text" matInput placeholder="Додаткова інформація" ngModel name="message"></textarea>
+      <mat-label>Фото</mat-label>
+      <ngx-mat-file-input ngModel name="photo" required #photo="ngModel"></ngx-mat-file-input>
+      <mat-icon matSuffix>folder</mat-icon>
+      <mat-error *ngIf="photo.hasError('required') && photo.touched">
+        Значення поля "Фото" не може бути порожнім
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="add-post-page__form-input" appearance="fill">
+      <mat-label>Додаткова інформація</mat-label>
+      <textarea type="text" matInput ngModel name="comment"></textarea>
     </mat-form-field>
     <button type="submit" class="add-post-page__form-button" mat-raised-button color="accent" [disabled]="!form.valid">
       <mat-icon>flash_on</mat-icon>&nbsp;Повідомити
