@@ -76,14 +76,11 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.home-page-feedback__message {
-  font-size: 16px;
-  font-style: italic;
-}
 .home-page-form__form-input {
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   .home-page-form__form-input {
@@ -94,6 +91,7 @@
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 10px;
 }
 .home-page-form__form-textarea textarea {
   width: 100%;
