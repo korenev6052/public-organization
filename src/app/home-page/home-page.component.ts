@@ -25,6 +25,7 @@ export class HomePageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    /* Это загрушка. Нужно получить ответ от сервера и в зависимости от ответа вывести сообщение.*/
     const formData = form.value;
     console.log(formData);
     this.openMatSnackBar();

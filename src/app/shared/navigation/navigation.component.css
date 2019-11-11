@@ -1,9 +1,13 @@
 .navigation {
-  padding-left: 0;
-  padding-right: 0;
+  min-height: 100vh;
 }
-@media (min-width: 992px) {
-  .navigation {
+.navigation__toolbar {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .navigation__toolbar {
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -16,26 +20,54 @@
 .navigation__spacer {
   flex: 1 1 auto;
 }
-.navigation__button {
-  margin-left: 10px;
-  font-size: 15px;
+.navigation__list {
+  margin: 0;
+  padding: 0;
 }
-.navigation__button_hidden-mobile {
+.navigation__list {
   display: none;
 }
 @media (min-width: 768px) {
-  .navigation__button_hidden-mobile {
-    display: inline-block;
+  .navigation__list {
+    display: block;
   }
 }
-.navigation__button_hidden-desktop {
-  display: inline-block;
+.navigation__list_mobile {
+  display: block;
+  padding: 15px;
 }
 @media (min-width: 768px) {
-  .navigation__button_hidden-desktop {
+  .navigation__list_mobile {
     display: none;
   }
 }
-
-
-
+.navigation__list-item {
+  list-style-type: none;
+  font-size: 17px;
+  display: inline;
+  margin: 0 0 0 30px;
+  padding: 0;
+}
+.navigation__list-item_mobile {
+  display: block;
+  margin: 0;
+  margin-bottom: 15px;
+}
+.navigation__list-item a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.navigation__list-item a:hover, .navigation__list-item a:active {
+  text-decoration: underline;
+}
+.navigation__list-item_mobile a {
+  color: #232323;
+}
+.navigation__drawer-button {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .navigation__drawer-button {
+    display: none;
+  }
+}

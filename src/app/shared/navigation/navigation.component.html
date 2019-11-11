@@ -1,28 +1,44 @@
-<mat-toolbar class="navigation" color="primary">
-  <mat-toolbar-row>
-    <img class="navigation__logo" routerLink="/home" src="./assets/logo.png" alt="Громадська організація">
-    <span class="navigation__spacer"></span>
-    <button class="navigation__button" mat-mini-fab routerLink="/add-post">
-      <mat-icon>flash_on</mat-icon>
-    </button>
-    <button class="navigation__button navigation__button_hidden-mobile" mat-button
-      routerLink="/posts">Повідомлення</button>
-    <button class="navigation__button navigation__button_hidden-mobile" mat-button routerLink="/map">Мапа</button>
-    <button class="navigation__button navigation__button_hidden-mobile" mat-button routerLink="/about">Про
-      нас</button>
-    <button class="navigation__button navigation__button_hidden-desktop" mat-button [matMenuTriggerFor]="menu">
-      Меню
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/posts">
-        <span>Повідомлення</span>
-      </button>
-      <button mat-menu-item routerLink="/map">
-        <span>Мапа</span>
-      </button>
-      <button mat-menu-item routerLink="/about">
-        <span>Про нас</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar-row>
-</mat-toolbar>
+<mat-sidenav-container class="navigation">
+  <mat-sidenav mode="over" autoFocus="false" #drawer>
+    <nav>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row class="navigation__toolbar">
+          Меню
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <ul class="navigation__list navigation__list_mobile">
+        <li class="navigation__list-item navigation__list-item_mobile" *ngFor="let item of navItems">
+          <a routerLink="{{ item.link }}" (click)="drawer.toggle()">
+            <mat-icon>{{ item.icon }}</mat-icon>&nbsp;{{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <nav>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row class="navigation__toolbar">
+          <img class="navigation__logo" routerLink="/home" src="./assets/logo.png" alt="Громадська організація">
+          <span class="navigation__spacer"></span>
+          <ul class="navigation__list">
+            <li class="navigation__list-item" *ngFor="let item of navItems; first as isFirst">
+              <a *ngIf="isFirst" routerLink="{{ item.link }}">
+                <mat-icon>{{ item.icon }}</mat-icon>
+              </a>
+              <a *ngIf="!isFirst" routerLink="{{ item.link }}">
+                {{ item.name }}
+              </a>
+            </li>
+          </ul>
+          <button class="navigation__drawer-button" type="button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </nav>
+    <section>
+      <ng-content></ng-content>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>

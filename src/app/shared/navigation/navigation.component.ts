@@ -12,6 +12,28 @@ export class NavigationComponent implements OnInit {
     title.setTitle('Сторінку не знайдено - Громадська організація');
   }
 
+  navItems: {
+    'name': string,
+    'link': string,
+    'icon': string
+  }[] = [{
+    'name': 'Повідомити',
+    'link': '/add-post',
+    'icon': 'flash_on'
+  }, {
+    'name': 'Повідомлення',
+    'link': '/posts',
+    'icon': 'view_list'
+  }, {
+    'name': 'Мапа',
+    'link': '/map',
+    'icon': 'room'
+  }, {
+    'name': 'Про нас',
+    'link': '/about',
+    'icon': 'import_contacts'
+  }];
+
   ngOnInit() {
   }
 
