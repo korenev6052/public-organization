@@ -13,6 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
@@ -22,6 +23,7 @@ import { PostsPageComponent } from './posts-page/posts-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     MatSnackBarModule,
     MatSidenavModule,
     MatListModule
+    MaterialFileInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
