@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
@@ -9,7 +10,9 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AddPostPageComponent implements OnInit {
 
-  constructor(private matSnackBar: MatSnackBar) { }
+  constructor(private title: Title, private matSnackBar: MatSnackBar) {
+    title.setTitle('Додати нове повідомлення - Громадська організація');
+  }
 
   ngOnInit() {
   }

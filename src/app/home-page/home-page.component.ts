@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'po-home-page',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title, private matSnackBar: MatSnackBar) {
+    title.setTitle('Головна - Громадська організація');
+  }
 
   ngOnInit() {
+  }
+
+  private openMatSnackBar() {
+    this.matSnackBar.open('Повідомлення надіслане', '', {
+      verticalPosition: 'top',
+      duration: 2000
+    })
+  }
+
+  onSubmit(form: NgForm) {
+    /* Это загрушка. Нужно получить ответ от сервера и в зависимости от ответа вывести сообщение.*/
+    const formData = form.value;
+    console.log(formData);
+    this.openMatSnackBar();
+    form.resetForm();
   }
 
 }

@@ -1,7 +1,44 @@
-<div>
-  <button routerLink="['/home']">Home</button>
-  <button routerLink="['/add-post']">Add post</button>
-  <button routerLink="['/posts']">Posts</button>
-  <button routerLink="['/map']">Map</button>
-  <button routerLink="['/about']">About</button>
-</div>
+<mat-sidenav-container class="navigation">
+  <mat-sidenav mode="over" autoFocus="false" #drawer>
+    <nav>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row class="navigation__toolbar">
+          Меню
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <ul class="navigation__list navigation__list_mobile">
+        <li class="navigation__list-item navigation__list-item_mobile" *ngFor="let item of navItems">
+          <a routerLink="{{ item.link }}" (click)="drawer.toggle()">
+            <mat-icon>{{ item.icon }}</mat-icon>&nbsp;{{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <nav>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row class="navigation__toolbar">
+          <img class="navigation__logo" routerLink="/home" src="./assets/logo.png" alt="Громадська організація">
+          <span class="navigation__spacer"></span>
+          <ul class="navigation__list">
+            <li class="navigation__list-item" *ngFor="let item of navItems; first as isFirst">
+              <a *ngIf="isFirst" routerLink="{{ item.link }}">
+                <mat-icon>{{ item.icon }}</mat-icon>
+              </a>
+              <a *ngIf="!isFirst" routerLink="{{ item.link }}">
+                {{ item.name }}
+              </a>
+            </li>
+          </ul>
+          <button class="navigation__drawer-button" type="button" mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </nav>
+    <section>
+      <ng-content></ng-content>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>

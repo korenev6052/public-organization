@@ -1,1 +1,50 @@
-<p>home-page works!</p>
+<div class="home-page">
+  <div class="home-page-title">
+    <h1 class="home-page-title__header">
+      Heading 1
+    </h1>
+    <div class="home-page-title__pre-header">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi nesciunt minima consectetur, quidem officiis
+      facere dicta, suscipit, inventore a vel quod quaerat deleniti eligendi sed nobis delectus? Quasi, sit.
+    </div>
+    <button class="home-page-title__button" mat-raised-button color="accent" routerLink="/add-post">
+      <mat-icon>flash_on</mat-icon>&nbsp;Повідомити
+    </button>
+  </div>
+  <hr>
+  <div class="home-page-feedback">
+    <h2 class="home-page-feedback__header">
+      Написати нам
+    </h2>
+    <form class="home-page-feedback__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <mat-form-field class="home-page-form__form-input" appearance="fill">
+        <mat-label>Ваше ім'я</mat-label>
+        <input type="text" matInput ngModel name="name" required #name="ngModel">
+        <mat-error *ngIf="name.hasError('required') && name.touched">
+          Значення поля "Ваше ім'я" не може бути порожнім
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="home-page-form__form-input" appearance="fill">
+        <mat-label>Ваша пошта</mat-label>
+        <input type="email" matInput ngModel name="email" required email #email="ngModel">
+        <mat-error *ngIf="email.hasError('required') && email.touched">
+          Значення поля "Ваша пошта" не може бути порожнім
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Значення поля "Ваша пошта" некоректне
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="home-page-form__form-textarea" appearance="fill">
+        <mat-label>Текст повідомлення</mat-label>
+        <textarea type="text" matInput ngModel name="message" required #message="ngModel"></textarea>
+        <mat-error *ngIf="message.hasError('required') && message.touched">
+          Значення поля "Текст повідомлення" не може бути порожнім
+        </mat-error>
+      </mat-form-field>
+      <button type="submit" class="home-page-feedback__button" mat-raised-button color="primary"
+        [disabled]="!form.valid">
+        <mat-icon>mail_outline</mat-icon>&nbsp;Надіслати
+      </button>
+    </form>
+  </div>
+</div>
