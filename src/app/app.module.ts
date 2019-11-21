@@ -12,18 +12,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './shared/navigation/navigation.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AddPostPageComponent } from './add-post-page/add-post-page.component';
 import { PostsPageComponent } from './posts-page/posts-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     PostsPageComponent,
     MapPageComponent,
     AboutPageComponent,
-    NotFoundComponent
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +50,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatCardModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
     MaterialFileInputModule
   ],
   providers: [],
