@@ -7,7 +7,7 @@ import { FormFields } from '../../interfaces/form-fields.interface';
 import { FormErrors } from '../../interfaces/form-errors.interface';
 
 @Component({
-  selector: 't-single-form',
+  selector: 'po-single-form',
   template: ''
 })
 export class SingleFormComponent {
@@ -54,11 +54,11 @@ export class SingleFormComponent {
   }
 
   protected onSubmitSuccess(response: any) {
-    console.log(response);
+    // console.log(response);
   }
 
   protected onSubmitFail(error: any) {
-    console.log(error);
+    // console.log(error);
   }
 
 }

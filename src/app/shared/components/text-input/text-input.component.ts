@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 't-text-input',
+  selector: 'po-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css']
 })
@@ -16,6 +16,7 @@ export class TextInputComponent {
   @Input() name: string;
   @Input() label: string;
   @Input() errors: object;
+  @Input() textarea: boolean;
 
   errorMessage: string;
 

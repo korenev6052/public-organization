@@ -76,26 +76,14 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.home-page-form__form-input {
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 10px;
+.home-page-feedback__input {
+  width: 100%;
+  display: inline-block;
 }
 @media (min-width: 768px) {
-  .home-page-form__form-input {
-    width: 46%;
+  .home-page-feedback__input_half {
+    width: 50%;
   }
-}
-.home-page-form__form-textarea {
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 10px;
-}
-.home-page-form__form-textarea textarea {
-  width: 100%;
-  min-height: 100px;
 }
 .home-page-feedback__button {
   margin-top: 20px;
