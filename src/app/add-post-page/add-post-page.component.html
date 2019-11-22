@@ -2,41 +2,17 @@
   <h1 class="add-post-page__header">
     Додати нове повідомлення
   </h1>
-  <form class="add-post-page__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <mat-label>Місто</mat-label>
-      <input type="text" matInput ngModel name="city" required #city="ngModel">
-      <mat-error *ngIf="city.hasError('required') && city.touched">
-        Значення поля "Місто" не може бути порожнім
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <mat-label>Вулиця</mat-label>
-      <input type="text" matInput ngModel name="street" required #street="ngModel">
-      <mat-error *ngIf="street.hasError('required') && street.touched">
-        Значення поля "Вулиця" не може бути порожнім
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <mat-label>Будинок</mat-label>
-      <input type="text" matInput ngModel name="house" required #house="ngModel">
-      <mat-error *ngIf="house.hasError('required') && house.touched">
-        Значення поля "Будинок" не може бути порожнім
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <mat-label>Фото</mat-label>
-      <ngx-mat-file-input ngModel name="photo" required #photo="ngModel"></ngx-mat-file-input>
-      <mat-icon matSuffix>folder</mat-icon>
-      <mat-error *ngIf="photo.hasError('required') && photo.touched">
-        Значення поля "Фото" не може бути порожнім
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field class="add-post-page__form-input" appearance="fill">
-      <mat-label>Додаткова інформація</mat-label>
-      <textarea type="text" matInput ngModel name="comment"></textarea>
-    </mat-form-field>
-    <button type="submit" class="add-post-page__form-button" mat-raised-button color="accent" [disabled]="!form.valid">
+  <form class="add-post-page__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <po-text-input [form]="form" name="city" label="Місто" [errors]="formErrors['city']"></po-text-input>
+    <po-text-input [form]="form" name="street" label="Вулиця" [errors]="formErrors['street']"></po-text-input>
+    <po-text-input [form]="form" name="house" label="Будинок" [errors]="formErrors['house']"></po-text-input>
+    <po-file-input [form]="form" name="photo" label="Фото" [errors]="formErrors['photo']"
+      (change)="changePhoto($event)">
+    </po-file-input>
+    <po-text-input [form]="form" name="comment" label="Додаткова інформація" textarea="true">
+    </po-text-input>
+    <button class="add-post-page__form-button" type="submit" class="add-post-page__form-button" mat-raised-button
+      color="accent">
       <mat-icon>flash_on</mat-icon>&nbsp;Повідомити
     </button>
   </form>

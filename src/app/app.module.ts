@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -26,6 +26,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SingleFormComponent } from './shared/components/single-form/single-form.component';
 import { TextInputComponent } from './shared/components/text-input/text-input.component';
+import { FileInputComponent } from './shared/components/file-input/file-input.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TextInputComponent } from './shared/components/text-input/text-input.co
     AboutPageComponent,
     NotFoundPageComponent,
     SingleFormComponent,
-    TextInputComponent
+    TextInputComponent,
+    FileInputComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,6 @@ import { TextInputComponent } from './shared/components/text-input/text-input.co
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
     MatCardModule,
     MatSnackBarModule,
     MatSidenavModule,
