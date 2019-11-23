@@ -10,7 +10,7 @@ import { FormErrors } from '../../interfaces/form-errors.interface';
   selector: 'po-single-form',
   template: ''
 })
-export class SingleFormComponent implements OnInit, OnDestroy {
+export class SingleFormComponent implements OnDestroy {
 
   constructor(protected formBuilder: FormBuilder, protected snackBar: MatSnackBar) { }
 
@@ -19,7 +19,6 @@ export class SingleFormComponent implements OnInit, OnDestroy {
   makeRequest: Observable<any> = of(null);
   sending: boolean = false;
   sent: boolean = false;
-
   sub1: Subscription;
 
   protected initForm(formFields: FormFields, formErrors?: FormErrors) {
@@ -61,10 +60,6 @@ export class SingleFormComponent implements OnInit, OnDestroy {
 
   protected onSubmitFail(error: any) {
     // console.log(error);
-  }
-
-  ngOnInit() {
-    console.log('father');
   }
 
   ngOnDestroy() {

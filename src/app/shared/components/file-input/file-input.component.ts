@@ -15,6 +15,7 @@ export class FileInputComponent {
   @Input() name: string;
   @Input() label: string;
   @Input() errors: object;
+  @Input() progress: number;
 
   errorMessage: string;
 

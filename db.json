@@ -1,19 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "city": "Винница",
-      "street": "Соборная",
-      "house": "1",
-      "comment": "Надпись расположена на фасаде дома"
-    }
-  ],
-  "messages": [
-    {
-      "name": "Александр",
-      "email": "korenev6052@gmail.com",
-      "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-      "id": 1
-    }
-  ]
+  "posts": [],
+  "messages": []
 }

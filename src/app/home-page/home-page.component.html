@@ -24,7 +24,7 @@
       <po-text-input class="home-page-feedback__input" [form]="form" name="messageText" label="Текст повідомлення"
         [errors]="formErrors['messageText']" textarea="true">
       </po-text-input>
-      <button type="submit" class="home-page-feedback__button" mat-raised-button color="primary">
+      <button type="submit" class="home-page-feedback__button" mat-raised-button color="primary" [disabled]="sending">
         <mat-icon>mail_outline</mat-icon>&nbsp;Надіслати
       </button>
     </form>

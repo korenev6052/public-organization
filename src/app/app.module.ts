@@ -31,6 +31,7 @@ import { SingleFormComponent } from './shared/components/single-form/single-form
 import { TextInputComponent } from './shared/components/text-input/text-input.component';
 import { FileInputComponent } from './shared/components/file-input/file-input.component';
 import { MessagesService } from './shared/services/messages.service';
+import { PostService } from './shared/services/posts.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MessagesService } from './shared/services/messages.service';
     MatProgressSpinnerModule
   ],
   providers: [
-    MessagesService
+    MessagesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

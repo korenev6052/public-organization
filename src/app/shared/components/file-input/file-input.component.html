@@ -7,4 +7,6 @@
       <span *ngIf="isControlHasError()">{{ errorMessage }}</span>
     </mat-error>
   </mat-form-field>
+  <mat-progress-bar *ngIf="progress" class="file-input__progress" mode="determinate" [value]="progress">
+  </mat-progress-bar>
 </div>

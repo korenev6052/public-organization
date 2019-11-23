@@ -6,6 +6,8 @@
 .file-input__field {
   width: 100%;
 }
-.file-input__field textarea {
-  min-height: 100px;
+.file-input__progress {
+  position: relative;
+  top: -23px;
+  height: 3px;
 }

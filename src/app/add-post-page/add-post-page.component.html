@@ -7,12 +7,12 @@
     <po-text-input [form]="form" name="street" label="Вулиця" [errors]="formErrors['street']"></po-text-input>
     <po-text-input [form]="form" name="house" label="Будинок" [errors]="formErrors['house']"></po-text-input>
     <po-file-input [form]="form" name="photo" label="Фото" [errors]="formErrors['photo']"
-      (change)="changePhoto($event)">
+      [progress]="photoUploadProgress" (change)="changePhoto($event)">
     </po-file-input>
     <po-text-input [form]="form" name="comment" label="Додаткова інформація" textarea="true">
     </po-text-input>
     <button class="add-post-page__form-button" type="submit" class="add-post-page__form-button" mat-raised-button
-      color="accent">
+      color="accent" [disabled]="sending">
       <mat-icon>flash_on</mat-icon>&nbsp;Повідомити
     </button>
   </form>
