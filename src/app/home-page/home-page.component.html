@@ -21,8 +21,8 @@
         label="Ваше ім'я" [errors]="formErrors['name']"></po-text-input>
       <po-text-input class="home-page-feedback__input home-page-feedback__input_half" [form]="form" name="email"
         label="Ваша пошта" [errors]="formErrors['email']"></po-text-input>
-      <po-text-input class="home-page-feedback__input" [form]="form" name="message" label="Текст повідомлення"
-        [errors]="formErrors['message']" textarea="true">
+      <po-text-input class="home-page-feedback__input" [form]="form" name="messageText" label="Текст повідомлення"
+        [errors]="formErrors['messageText']" textarea="true">
       </po-text-input>
       <button type="submit" class="home-page-feedback__button" mat-raised-button color="primary">
         <mat-icon>mail_outline</mat-icon>&nbsp;Надіслати

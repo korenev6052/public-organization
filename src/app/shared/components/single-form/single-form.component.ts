@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 
 import { FormFields } from '../../interfaces/form-fields.interface';
 import { FormErrors } from '../../interfaces/form-errors.interface';
@@ -10,7 +10,7 @@ import { FormErrors } from '../../interfaces/form-errors.interface';
   selector: 'po-single-form',
   template: ''
 })
-export class SingleFormComponent {
+export class SingleFormComponent implements OnInit, OnDestroy {
 
   constructor(protected formBuilder: FormBuilder, protected snackBar: MatSnackBar) { }
 
@@ -19,6 +19,8 @@ export class SingleFormComponent {
   makeRequest: Observable<any> = of(null);
   sending: boolean = false;
   sent: boolean = false;
+
+  sub1: Subscription;
 
   protected initForm(formFields: FormFields, formErrors?: FormErrors) {
     this.form = this.formBuilder.group(formFields);
@@ -31,7 +33,7 @@ export class SingleFormComponent {
     if (this.form.valid) {
       this.sending = true;
       this.sent = false;
-      this.makeRequest.subscribe((response: any) => {
+      this.sub1 = this.makeRequest.subscribe((response: any) => {
         this.sending = false;
         this.sent = true;
         this.form.reset();
@@ -41,7 +43,7 @@ export class SingleFormComponent {
         this.sending = false;
         this.showMessage(failMessage);
         this.onSubmitFail(error);
-      })
+      });
     } else {
       this.form.markAllAsTouched();
     }
@@ -59,6 +61,16 @@ export class SingleFormComponent {
 
   protected onSubmitFail(error: any) {
     // console.log(error);
+  }
+
+  ngOnInit() {
+    console.log('father');
+  }
+
+  ngOnDestroy() {
+    if (this.sub1) {
+      this.sub1.unsubscribe();
+    }
   }
 
 }

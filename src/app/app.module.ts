@@ -13,6 +13,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +30,7 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
 import { SingleFormComponent } from './shared/components/single-form/single-form.component';
 import { TextInputComponent } from './shared/components/text-input/text-input.component';
 import { FileInputComponent } from './shared/components/file-input/file-input.component';
+import { MessagesService } from './shared/services/messages.service';
 
 @NgModule({
   declarations: [
@@ -57,9 +61,14 @@ import { FileInputComponent } from './shared/components/file-input/file-input.co
     MatSidenavModule,
     MatListModule,
     MaterialFileInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    MessagesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

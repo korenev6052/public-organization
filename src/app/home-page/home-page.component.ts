@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import * as moment from 'moment';
+
 import { SingleFormComponent } from '../shared/components/single-form/single-form.component';
+import { MessagesService } from '../shared/services/messages.service';
+import { Message } from '../shared/models/message.model';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'po-home-page',
@@ -11,7 +16,7 @@ import { SingleFormComponent } from '../shared/components/single-form/single-for
 })
 export class HomePageComponent extends SingleFormComponent implements OnInit {
 
-  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private title: Title) {
+  constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private title: Title, private messagesService: MessagesService) {
     super(formBuilder, snackBar);
     title.setTitle('Головна - Громадська організація');
   }
@@ -20,7 +25,7 @@ export class HomePageComponent extends SingleFormComponent implements OnInit {
     this.initForm({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]]
+      messageText: ['', [Validators.required, Validators.minLength(10)]]
     }, {
       name: {
         required: 'Значення поля "Ваше ім\'я" не може бути порожнім'
@@ -29,7 +34,7 @@ export class HomePageComponent extends SingleFormComponent implements OnInit {
         required: 'Значення поля "Ваша пошта" не може бути порожнім',
         email: 'Значення поля "Ваша пошта" некоректне'
       },
-      message: {
+      messageText: {
         required: 'Значення поля "Текст повідомлення" не може бути порожнім',
         minlength: 'Значення поля "Текст повідомлення" не може бути менше 10 символів'
       }
@@ -37,8 +42,14 @@ export class HomePageComponent extends SingleFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.makeRequest = ;
-    // this.formSubmit('Дякуємо, повідомлення надіслано', 'На жаль, виникла помилка відправки, спробуйте ще раз');
+    const timeStamp = moment().format('DD.MM.YYYY HH.mm.ss');
+    const { email, name, messageText } = this.form.value;
+    const message = new Message(name, email, messageText, timeStamp);
+    this.makeRequest = forkJoin(
+      this.messagesService.addMessage(message),
+      this.messagesService.sendMessage(message)
+    );
+    this.formSubmit('Дякуємо, повідомлення надіслано', 'На жаль, виникла помилка відправки, спробуйте ще раз');
   }
 
 }
