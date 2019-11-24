@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './add-post-page.component.html',
   styleUrls: ['./add-post-page.component.css']
 })
-export class AddPostPageComponent extends SingleFormComponent implements OnInit {
+export class AddPostPageComponent extends SingleFormComponent implements OnInit, OnDestroy {
 
   constructor(formBuilder: FormBuilder, snackBar: MatSnackBar, private title: Title, private postsService: PostService) {
     super(formBuilder, snackBar);
@@ -25,7 +25,6 @@ export class AddPostPageComponent extends SingleFormComponent implements OnInit 
 
   currentPhoto: File = null;
   photoUploadProgress: number = null;
-  sub2: Subscription;
 
   ngOnInit() {
     this.initForm({
@@ -59,7 +58,7 @@ export class AddPostPageComponent extends SingleFormComponent implements OnInit 
     if (this.form.valid) {
       this.sending = true;
       this.sent = false;
-      this.sub2 = this.postsService.uploadPhoto(this.currentPhoto).subscribe(
+      this.subscriptions.add(this.postsService.uploadPhoto(this.currentPhoto).subscribe(
         event => {
           if (event.type === HttpEventType.UploadProgress) {
             this.photoUploadProgress = Math.round(event.loaded / event.total * 100);
@@ -78,9 +77,10 @@ export class AddPostPageComponent extends SingleFormComponent implements OnInit 
         }, error => {
           this.sending = false;
           this.showMessage('На жаль, виникла помилка відправки, спробуйте ще раз');
-        });
+        }));
     } else {
       this.form.markAllAsTouched();
     }
   }
+
 }

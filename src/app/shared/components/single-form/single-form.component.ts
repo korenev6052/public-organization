@@ -19,7 +19,7 @@ export class SingleFormComponent implements OnDestroy {
   makeRequest: Observable<any> = of(null);
   sending: boolean = false;
   sent: boolean = false;
-  sub1: Subscription;
+  subscriptions: Subscription = new Subscription();
 
   protected initForm(formFields: FormFields, formErrors?: FormErrors) {
     this.form = this.formBuilder.group(formFields);
@@ -32,7 +32,7 @@ export class SingleFormComponent implements OnDestroy {
     if (this.form.valid) {
       this.sending = true;
       this.sent = false;
-      this.sub1 = this.makeRequest.subscribe((response: any) => {
+      this.subscriptions.add(this.makeRequest.subscribe((response: any) => {
         this.sending = false;
         this.sent = true;
         this.form.reset();
@@ -42,7 +42,7 @@ export class SingleFormComponent implements OnDestroy {
         this.sending = false;
         this.showMessage(failMessage);
         this.onSubmitFail(error);
-      });
+      }));
     } else {
       this.form.markAllAsTouched();
     }
@@ -63,9 +63,7 @@ export class SingleFormComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.sub1) {
-      this.sub1.unsubscribe();
-    }
+    this.subscriptions.unsubscribe();
   }
 
 }
