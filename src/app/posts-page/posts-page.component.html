@@ -1,1 +1,7 @@
-<p>posts-page works!</p>
+<div class="post-page">
+  <po-single-post *ngFor="let post of posts | slice:0:loadedPosts" [post]="post"></po-single-post>
+  <button *ngIf="(posts.length > loadedPosts)" class="post-page__button" mat-raised-button color="primary"
+    (click)="downloadPosts()">
+    <mat-icon>arrow_downward</mat-icon>&nbsp;Завантажити ще
+  </button>
+</div>

@@ -1,0 +1,31 @@
+<mat-card class="single-post" [ngStyle]="{'border-color': statusColor[post.status]}">
+  <mat-icon class="single-post__icon" [ngStyle]="{'color': statusColor[post.status]}">{{ statusIcons[post.status] }}
+  </mat-icon>
+  <div>
+    <mat-card-header class="single-post__header">
+      <mat-card-title>
+        Місто&nbsp;{{ post.city }}, вулиця&nbsp;{{ post.street }}, будинок&nbsp;{{ post.house }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="single-post__content">
+      <p>Статус: {{ post.status }}</p>
+      <p>
+        Дата повідомлення: {{ post.createdTimeStamp }}
+      </p>
+      <p>
+        Остання зміна статусу: {{ post.changedTimeStamp }}
+      </p><br>
+      <p>
+        Додаткова інформація:
+      </p>
+      <p *ngIf="(post.comment.length > 100) && !isShowComment">{{ post.comment.substring(0, 100) }}...</p>
+      <p *ngIf="!(post.comment.length > 100) || isShowComment">{{ post.comment }}</p>
+      <mat-button-toggle class="single-post__toggle" *ngIf="(post.comment.length > 100)" (click)="showComment()"
+        [checked]="isShowComment">Більше...</mat-button-toggle>
+    </mat-card-content>
+  </div>
+  <span class="single-post__spacer"></span>
+  <div class="single-post__router">
+    <a routerLink="/map">На мапі<mat-icon>arrow_forward</mat-icon></a>
+  </div>
+</mat-card>

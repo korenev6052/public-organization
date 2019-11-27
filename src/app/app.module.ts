@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +27,7 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { SinglePostComponent } from './posts-page/single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     PostsPageComponent,
     MapPageComponent,
     AboutPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
@@ -50,8 +55,11 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatCardModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatListModule
-    MaterialFileInputModule
+    MatListModule,
+    MaterialFileInputModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

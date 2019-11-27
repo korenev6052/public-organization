@@ -1,0 +1,33 @@
+.post-page {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .post-page {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .post-page {
+    width: 970px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+@media (min-width: 1200px) {
+  .post-page {
+    width: 1170px;
+  }
+}
+.post-page__button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 30px;
+  font-size: 18px;
+  min-width: 200px;
+}
