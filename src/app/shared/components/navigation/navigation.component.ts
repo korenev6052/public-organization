@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { NavItem } from '../models/nav-item.model';
+import { NavItem } from '../../models/nav-item.model';
 
 @Component({
   selector: 'po-navigation',

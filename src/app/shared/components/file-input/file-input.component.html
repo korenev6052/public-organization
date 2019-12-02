@@ -1,0 +1,12 @@
+<div class="file-input" [formGroup]="form">
+  <mat-form-field class="file-input__field" appearance="fill">
+    <mat-label *ngIf="label">{{ label }}</mat-label>
+    <ngx-mat-file-input [placeholder]="placeholder" [formControlName]="name"></ngx-mat-file-input>
+    <mat-icon matSuffix>{{ icon || 'folder' }}</mat-icon>
+    <mat-error *ngIf="errors">
+      <span *ngIf="isControlHasError()">{{ errorMessage }}</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-progress-bar *ngIf="progress" class="file-input__progress" mode="determinate" [value]="progress">
+  </mat-progress-bar>
+</div>

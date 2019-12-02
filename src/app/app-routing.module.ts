@@ -6,7 +6,7 @@ import { AddPostPageComponent } from './add-post-page/add-post-page.component';
 import { PostsPageComponent } from './posts-page/posts-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'posts', component: PostsPageComponent },
   { path: 'map', component: MapPageComponent },
   { path: 'about', component: AboutPageComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({
