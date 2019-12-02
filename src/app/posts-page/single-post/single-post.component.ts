@@ -18,12 +18,6 @@ export class SinglePostComponent {
     'Скасовано': 'remove_circle'
   }
 
-  statusColor = {
-    'Надійшло': '#FFD740',
-    'Виконано': '#673AB7',
-    'Скасовано': '#F44336'
-  }
-
   isShowComment: boolean = false;
 
   showComment() {

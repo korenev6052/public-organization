@@ -28,6 +28,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { SinglePostComponent } from './posts-page/single-post/single-post.component';
+import { PostsServiceMock } from './shared/mocks/posts-service.mock';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { SinglePostComponent } from './posts-page/single-post/single-post.compon
     MatButtonToggleModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [
+    PostsServiceMock
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
