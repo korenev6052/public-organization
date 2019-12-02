@@ -1,5 +1,7 @@
 export interface FormErrors {
-  [key: string]: {
-    [key: string]: string
-  }
+  [key: string]: Errors
+}
+
+interface Errors {
+  [key: string]: string
 }

@@ -2,7 +2,7 @@
   <mat-form-field class="file-input__field" appearance="fill">
     <mat-label *ngIf="label">{{ label }}</mat-label>
     <ngx-mat-file-input [placeholder]="placeholder" [formControlName]="name"></ngx-mat-file-input>
-    <mat-icon matSuffix>folder</mat-icon>
+    <mat-icon matSuffix>{{ icon || 'folder' }}</mat-icon>
     <mat-error *ngIf="errors">
       <span *ngIf="isControlHasError()">{{ errorMessage }}</span>
     </mat-error>

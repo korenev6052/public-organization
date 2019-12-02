@@ -1,4 +1,24 @@
 {
-  "posts": [],
-  "messages": []
+  "posts": [
+    {
+      "city": "Макеевка",
+      "street": "Репина",
+      "house": "3",
+      "photo": "ca6ddda8f39cf110ab6808e87c9e1e155.jpg",
+      "comment": "",
+      "status": "Новий",
+      "createdTimeStamp": "02.12.2019 22.22.38",
+      "changedTimeStamp": "02.12.2019 22.22.38",
+      "id": 1
+    }
+  ],
+  "messages": [
+    {
+      "name": "Александр",
+      "email": "korenev_@mail.ru",
+      "messageText": "Отличный сервис!",
+      "timeStamp": "02.12.2019 22.21.43",
+      "id": 1
+    }
+  ]
 }

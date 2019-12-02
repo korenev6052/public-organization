@@ -4,12 +4,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FileValidator } from 'ngx-material-file-input';
 import { MatSnackBar } from '@angular/material';
 import * as moment from 'moment';
+import { HttpEventType } from '@angular/common/http';
+import { takeUntil } from 'rxjs/operators';
 
 import { SingleFormComponent } from '../shared/components/single-form/single-form.component';
 import { Post } from '../shared/models/post.model';
 import { PostService } from '../shared/services/posts.service';
-import { HttpEventType } from '@angular/common/http';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'po-add-post-page',
@@ -58,26 +58,28 @@ export class AddPostPageComponent extends SingleFormComponent implements OnInit,
     if (this.form.valid) {
       this.sending = true;
       this.sent = false;
-      this.subscriptions.add(this.postsService.uploadPhoto(this.currentPhoto).subscribe(
-        event => {
-          if (event.type === HttpEventType.UploadProgress) {
-            this.photoUploadProgress = Math.round(event.loaded / event.total * 100);
-          }
-          if (event.type === HttpEventType.Response) {
-            this.photoUploadProgress = null;
-            const photo = event.body['filename'];
-            const { city, street, house, comment } = this.form.value;
-            const status = 'Новий';
-            const createdTimeStamp = moment().format('DD.MM.YYYY HH.mm.ss');
-            const changedTimeStamp = createdTimeStamp;
-            const post = new Post(city, street, house, photo, comment, status, createdTimeStamp, changedTimeStamp);
-            this.makeRequest = this.postsService.addPost(post);
-            this.formSubmit('Дякуємо, повідомлення надіслано', 'На жаль, виникла помилка відправки, спробуйте ще раз');
-          }
-        }, error => {
-          this.sending = false;
-          this.showMessage('На жаль, виникла помилка відправки, спробуйте ще раз');
-        }));
+      this.postsService.uploadPhoto(this.currentPhoto)
+        .pipe(takeUntil(this.destroy))
+        .subscribe(
+          event => {
+            if (event.type === HttpEventType.UploadProgress) {
+              this.photoUploadProgress = Math.round(event.loaded / event.total * 100);
+            }
+            if (event.type === HttpEventType.Response) {
+              this.photoUploadProgress = null;
+              const photo = event.body['filename'];
+              const { city, street, house, comment } = this.form.value;
+              const status = 'Надійшло';
+              const createdTimeStamp = moment().format('DD.MM.YYYY HH.mm.ss');
+              const changedTimeStamp = createdTimeStamp;
+              const post = new Post(city, street, house, photo, comment, status, createdTimeStamp, changedTimeStamp);
+              this.makeRequest = this.postsService.addPost(post);
+              this.formSubmit('Дякуємо, повідомлення надіслано', 'На жаль, виникла помилка відправки, спробуйте ще раз');
+            }
+          }, error => {
+            this.sending = false;
+            this.showMessage('На жаль, виникла помилка відправки, спробуйте ще раз');
+          });
     } else {
       this.form.markAllAsTouched();
     }

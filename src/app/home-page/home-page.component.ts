@@ -3,11 +3,11 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as moment from 'moment';
+import { forkJoin } from 'rxjs';
 
 import { SingleFormComponent } from '../shared/components/single-form/single-form.component';
 import { MessagesService } from '../shared/services/messages.service';
 import { Message } from '../shared/models/message.model';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'po-home-page',

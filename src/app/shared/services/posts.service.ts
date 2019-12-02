@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Post } from '../models/post.model';
 import { Injectable } from '@angular/core';
+
+import { Post } from '../models/post.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class PostService {
@@ -9,42 +11,17 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   addPost(post): Observable<Post> {
-    return this.http.post<Post>('http://localhost:3000/posts', post);
+    return this.http.post<Post>(`${environment.jsonServerApiUrl}/posts`, post);
   }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:3000/posts');
+    return this.http.get<Post[]>(`${environment.jsonServerApiUrl}/posts`);
   }
 
   uploadPhoto(photoFile) {
     const photo = new FormData();
     photo.append('photo', photoFile, photoFile['name']);
-    return this.http.post('http://localhost:3200/upload/public-organization', photo, { reportProgress: true, observe: 'events' });
-  }
-
-  uploadPhotoXHR(photoFile) {
-    const photo = new FormData();
-    photo.append('photo', photoFile, photoFile['name']);
-    const xhr = new XMLHttpRequest();
-
-    xhr.upload.onprogress = function (event) {
-      console.log(event.loaded + ' / ' + event.total);
-    }
-
-    // обработчики успеха и ошибки
-    // если status == 200, то это успех, иначе ошибка
-    xhr.onload = xhr.onerror = function () {
-      if (this.status == 201) {
-        console.log("success", xhr.response);
-      } else {
-        console.log("error " + this.status);
-      }
-    };
-
-    xhr.open('post', 'http://localhost:3200/upload/public-organization', true);
-
-    xhr.send(photo);
-
+    return this.http.post(`${environment.fileServerApiUrl}/upload/public-organization`, photo, { reportProgress: true, observe: 'events' });
   }
 
 }
