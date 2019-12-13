@@ -1,13 +1,7 @@
-<mat-card class="single-post" [ngClass]="{
-  'single-post_received': post.status === 'Надійшло',
-  'single-post_done': post.status === 'Виконано',
-  'single-post_canceled': post.status === 'Скасовано'
-}">
-  <mat-icon class="single-post__icon" [ngClass]="{
-    'single-post__icon_received': post.status === 'Надійшло',
-    'single-post__icon_done': post.status === 'Виконано',
-    'single-post__icon_canceled': post.status === 'Скасовано'
-  }">{{ statusIcons[post.status] }}</mat-icon>
+<mat-card class="single-post" [ngStyle]="{'border-color': statusesColor[post.status]}">
+  <mat-icon class="single-post__icon" [ngStyle]="{'color': statusesColor[post.status]}">
+    {{ statusesIcon[post.status] }}
+  </mat-icon>
   <div>
     <mat-card-header class="single-post__header">
       <mat-card-title>

@@ -10,6 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 import { SingleFormComponent } from '../shared/components/single-form/single-form.component';
 import { Post } from '../shared/models/post.model';
 import { PostService } from '../shared/services/posts.service';
+import { PostStatuses } from '../shared/enums/post-statuses.enum'
 
 @Component({
   selector: 'po-add-post-page',
@@ -69,7 +70,7 @@ export class AddPostPageComponent extends SingleFormComponent implements OnInit,
               this.photoUploadProgress = null;
               const photo = event.body['filename'];
               const { city, street, house, comment } = this.form.value;
-              const status = 'Надійшло';
+              const status = PostStatuses.New;
               const createdTimeStamp = moment().format('DD.MM.YYYY HH.mm.ss');
               const changedTimeStamp = createdTimeStamp;
               const post = new Post(city, street, house, photo, comment, status, createdTimeStamp, changedTimeStamp);

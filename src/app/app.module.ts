@@ -57,6 +57,8 @@ import { PostService } from './shared/services/posts.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
@@ -70,14 +72,12 @@ import { PostService } from './shared/services/posts.service';
     MaterialFileInputModule,
     MatGridListModule,
     MatButtonToggleModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatSlideToggleModule
   ],
   providers: [
     PostsServiceMock,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
     MessagesService,
     PostService
   ],

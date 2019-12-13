@@ -3,15 +3,7 @@
   display: flex;
   flex-direction: row;
   text-align: left;
-}
-.single-post_received {
-  border: 1px solid #FFD740;
-}
-.single-post_done {
-  border: 1px solid #673AB7;
-}
-.single-post_canceled {
-  border: 1px solid #F44336;
+  border: 1px solid transparent;
 }
 .single-post__icon {
   width: 40px;
@@ -23,15 +15,6 @@
   .single-post__icon {
     display: block;
   }
-}
-.single-post__icon_received {
-  color: #FFD740;
-}
-.single-post__icon_done {
-  color: #673AB7;
-}
-.single-post__icon_canceled {
-  color: #F44336;
 }
 .single-post__content {
   font-size: 16px;

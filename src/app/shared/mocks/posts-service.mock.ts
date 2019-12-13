@@ -13,7 +13,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Надійшло',
+      status: 0,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 1
@@ -23,7 +23,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-      status: 'Виконано',
+      status: 1,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 2
@@ -33,7 +33,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 3
@@ -43,7 +43,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 4
@@ -53,7 +53,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 5
@@ -63,7 +63,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 6
@@ -73,7 +73,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 7
@@ -83,7 +83,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 8
@@ -93,7 +93,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 9
@@ -103,7 +103,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Скасовано',
+      status: 2,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 10
@@ -113,7 +113,7 @@ export class PostsServiceMock {
       house: '3',
       photo: '1.jpg',
       comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus veniam tenetur esse animi praesentium quia repellat maxime odio eum veritatis quis ad recusandae, nihil, necessitatibus rem commodi molestias dolorem itaque.',
-      status: 'Надійшло',
+      status: 0,
       createdTimeStamp: '25.06.2019 12:25:25',
       changedTimeStamp: '25.06.2019 12:25:25',
       id: 11
