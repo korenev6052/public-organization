@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -26,6 +29,8 @@ import { AddPostPageComponent } from './add-post-page/add-post-page.component';
 import { PostsPageComponent } from './posts-page/posts-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { SinglePostComponent } from './posts-page/single-post/single-post.component';
+import { PostsServiceMock } from './shared/mocks/posts-service.mock';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SingleFormComponent } from './shared/components/single-form/single-form.component';
 import { TextInputComponent } from './shared/components/text-input/text-input.component';
@@ -42,6 +47,7 @@ import { PostService } from './shared/services/posts.service';
     PostsPageComponent,
     MapPageComponent,
     AboutPageComponent,
+    SinglePostComponent,
     NotFoundPageComponent,
     SingleFormComponent,
     TextInputComponent,
@@ -51,6 +57,8 @@ import { PostService } from './shared/services/posts.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
@@ -62,12 +70,14 @@ import { PostService } from './shared/services/posts.service';
     MatSidenavModule,
     MatListModule,
     MaterialFileInputModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    MatGridListModule,
+    MatButtonToggleModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSlideToggleModule
   ],
   providers: [
+    PostsServiceMock,
     MessagesService,
     PostService
   ],

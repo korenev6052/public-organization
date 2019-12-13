@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+import { NavItem } from '../../models/nav-item.model';
+
 @Component({
   selector: 'po-navigation',
   templateUrl: './navigation.component.html',
@@ -12,11 +14,7 @@ export class NavigationComponent implements OnInit {
     title.setTitle('Сторінку не знайдено - Громадська організація');
   }
 
-  navItems: {
-    'name': string,
-    'link': string,
-    'icon': string
-  }[] = [{
+  navItems: NavItem[] = [{
     'name': 'Повідомити',
     'link': '/add-post',
     'icon': 'flash_on'
